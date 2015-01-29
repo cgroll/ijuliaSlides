@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-<title>iterators_comprehensions_and_map slides</title>
+<title>julia_features slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -221,19 +221,39 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Comprehensions">Comprehensions<a class="anchor-link" href="#Comprehensions">&#182;</a></h1>
+<h2 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">&#182;</a></h2>
 </div>
 </div>
-</div></section><section>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This IJulia notebook is a <strong>list of nice tweaks</strong> of the Julia language. Features should roughly be listed with <strong>ascending importance</strong>.</p>
+<p><strong>How does your favorite technical computing language compare to this?</strong></p>
+
+</div>
+</div>
+</div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>load required packages</li>
-</ul>
+<h2 id="Unicode-characters">Unicode characters<a class="anchor-link" href="#Unicode-characters">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When using variable names, you have the full range of <strong>special characters</strong> at your disposal.</p>
 
 </div>
 </div>
@@ -243,36 +263,9 @@ div.output_prompt {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">using</span> <span class="n">DataArrays</span>
-<span class="k">using</span> <span class="n">DataFrames</span>
-<span class="k">using</span> <span class="n">TimeData</span>
-<span class="k">using</span> <span class="n">Dates</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong>comprehensions</strong>: easy way to build <code>Arrays</code></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="p">[</span><span class="n">ii</span> <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<div class=" highlight hl-julia"><pre><span class="err">α</span> <span class="o">=</span> <span class="mf">3.4</span>
+<span class="n">print</span><span class="p">(</span><span class="err">α</span><span class="p">)</span>
+<span class="nb">pi</span>
 </pre></div>
 
 </div>
@@ -283,215 +276,17 @@ div.output_prompt {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>3.4</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>4-element Array{Int64,1}:
- 1
- 2
- 3
- 4</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong>forcing type</strong> of individual entries through prepending type declaration</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="kt">Float64</span><span class="p">[</span><span class="n">ii</span> <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4-element Array{Float64,1}:
- 1.0
- 2.0
- 3.0
- 4.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>similar logic: collect elements of <strong>any type</strong> in <code>Array</code> of type <code>Any</code></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="kt">Any</span><span class="p">[</span><span class="s">&quot;Hello&quot;</span> <span class="mi">3</span> <span class="mf">4.0</span> <span class="n">NA</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1x4 Array{Any,2}:
- &quot;Hello&quot;  3  4.0  NA</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>comprehensions also can be used to capture more complex iterated output</li>
-<li>for example: <strong>iteration over</strong> <strong>sample size</strong> or <strong>parameter values</strong></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="p">[</span><span class="n">Timematr</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="n">nObs</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="k">for</span> <span class="n">nObs</span> <span class="k">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2-element Array{Timematr{Int64},1}:
- Timematr{Int64}(2x2 DataFrame
-| Row | x1       | x2       |
-|-----|----------|----------|
-| 1   | 0.143767 | 0.252105 |
-| 2   | 0.954473 | 0.396473 |,[1,2])                                                                                                                                                                                                                                                                              
- Timematr{Int64}(10x2 DataFrame
-| Row | x1        | x2       |
-|-----|-----------|----------|
-| 1   | 0.129805  | 0.141181 |
-| 2   | 0.277486  | 0.106432 |
-| 3   | 0.69658   | 0.846779 |
-| 4   | 0.660322  | 0.564138 |
-| 5   | 0.927377  | 0.196321 |
-| 6   | 0.15726   | 0.928393 |
-| 7   | 0.0555973 | 0.29965  |
-| 8   | 0.994351  | 0.476713 |
-| 9   | 0.544934  | 0.877026 |
-| 10  | 0.286077  | 0.143029 |,[1,2,3,4,5,6,7,8,9,10])</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>using <strong>single index</strong> <em>ii</em>, it is <strong>not</strong> directly possible to get <strong><code>Array{T, 2}</code></strong> through comprehension</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="p">[[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4-element Array{Array{Int64,2},1}:
- 1x2 Array{Int64,2}:
- 1  2
- 1x2 Array{Int64,2}:
- 1  2
- 1x2 Array{Int64,2}:
- 1  2
- 1x2 Array{Int64,2}:
- 1  2</pre>
+<pre>π = 3.1415926535897...</pre>
 </div>
 
 </div>
@@ -508,45 +303,267 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Splicing">Splicing<a class="anchor-link" href="#Splicing">&#182;</a></h2>
+<h2 id="Scalar-multiplication">Scalar multiplication<a class="anchor-link" href="#Scalar-multiplication">&#182;</a></h2>
 </div>
 </div>
-</div></section><section>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When multiplying variables with scalar values, computer code allows the same abbreviation that is used in common <strong>mathematical notation</strong>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="mi">3</span><span class="n">x</span><span class="o">^</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">8</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span><span class="n">x</span>
+<span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>144</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong>successively</strong> returning components of collection</li>
-<li>could be used to <strong>paste</strong> elements of a <strong>collection into function</strong> arguments</li>
-<li>allows easy <strong>creation</strong> of <strong><code>Arrays</code></strong></li>
-</ul>
+<h2 id="Chaining-comparisons">Chaining comparisons<a class="anchor-link" href="#Chaining-comparisons">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Multiple comparisons</strong> can be <strong>simultaneously</strong> checked in one line.</p>
 
 </div>
 </div>
-</div></section><section>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">vals</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="n">intermediate</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">.&lt;=</span> <span class="n">vals</span> <span class="o">.&lt;=</span> <span class="mf">0.6</span>
+<span class="n">vals</span><span class="p">[</span><span class="n">intermediate</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>13-element Array{Float64,1}:
+ 0.201635
+ 0.527303
+ 0.328445
+ 0.525737
+ 0.446058
+ 0.54903 
+ 0.375686
+ 0.518639
+ 0.37518 
+ 0.379145
+ 0.505113
+ 0.585748
+ 0.238779</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>applying <strong><code>[ ]</code></strong> to collection only captures whole collection as <strong>single entry of</strong> an <strong><code>Array</code></strong></li>
-</ul>
+<h2 id="Pipes">Pipes<a class="anchor-link" href="#Pipes">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To avoid cluttering your workspace, <strong>successive operations</strong> on an input can also be written as a <strong>pipe</strong> similar to linux shell commands.</p>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="c"># manually compute standard deviation of b</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="n">centralized</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">mu</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">centralized</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.2829726154196466</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="c"># written with pipe</span>
+<span class="n">std</span> <span class="o">=</span> <span class="n">a</span> <span class="o">|&gt;</span>
+    <span class="n">exp</span> <span class="o">|&gt;</span>
+    <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">|&gt;</span>
+    <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span> <span class="o">|&gt;</span>
+    <span class="n">mean</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.2829726154196466</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="String-interpolation">String interpolation<a class="anchor-link" href="#String-interpolation">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Variable values can easily be incorporated into a string.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">fileName</span> <span class="o">=</span> <span class="s">&quot;data.csv&quot;</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;The values are stored in </span><span class="si">$</span><span class="s">fileName&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The values are stored in data.csv
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment" data-fragment-index="18">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">kk</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="p">[</span><span class="n">kk</span><span class="p">]</span>
+<div class=" highlight hl-julia"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;The values of a are: </span><span class="si">$</span><span class="s">a&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -557,86 +574,53 @@ div.output_prompt {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1-element Array{(Int64,Int64,Int64,Int64),1}:
- (1,2,3,4)</pre>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The values of a are: [1,2,3]
+</pre>
 </div>
-
 </div>
 
 </div>
 </div>
 
-</div></section><section>
+</div>
+    </div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>with <strong>splicing</strong>: <strong>each element</strong> of the collection gets its <strong>own entry</strong> within an <strong><code>Array</code></strong></li>
-</ul>
+<h2 id="Ternary-operators">Ternary operators<a class="anchor-link" href="#Ternary-operators">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="18">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ternary operators are an abbreviation for <strong>if ... else ... end</strong> expressions. The expression before "?" is the condition expression, and the ternary operation evaluates the expression before the ":" if the condition is true, or the expression after the ":" if it is false.</p>
 
 </div>
 </div>
 </div>
+        </div><div class="fragment" data-fragment-index="18">
+        
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="p">[</span><span class="n">kk</span><span class="o">...</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4-element Array{Int64,1}:
- 1
- 2
- 3
- 4</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>works out of the box: even <strong>for new types</strong></li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">type</span><span class="nc"> foo</span>
-    <span class="n">value</span>
+<div class=" highlight hl-julia"><pre><span class="n">kk</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">if</span> <span class="n">kk</span> <span class="o">&gt;</span> <span class="mi">3</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;greater than 3&quot;</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;smaller than 3&quot;</span><span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 
@@ -644,14 +628,29 @@ div.output_prompt {
 </div>
 </div>
 
-</div><div class="fragment" data-fragment-index="21">
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>greater than 3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+        </div><div class="fragment" data-fragment-index="22">
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">fooObj</span> <span class="o">=</span> <span class="n">foo</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span class="n">kk</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="o">?</span> <span class="n">println</span><span class="p">(</span><span class="s">&quot;greater than 3&quot;</span><span class="p">)</span> <span class="p">:</span> <span class="n">println</span><span class="p">(</span><span class="s">&quot;smaller than 3&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -662,76 +661,136 @@ div.output_prompt {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>foo(3)</pre>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>greater than 3
+</pre>
 </div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    </div><div class="fragment" data-fragment-index="22">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">kk</span> <span class="o">=</span> <span class="p">(</span><span class="n">fooObj</span><span class="p">,</span> <span class="n">fooObj</span><span class="p">,</span> <span class="n">fooObj</span><span class="p">)</span>
-<span class="p">[</span><span class="n">kk</span><span class="o">...</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3-element Array{foo,1}:
- foo(3)
- foo(3)
- foo(3)</pre>
-</div>
-
 </div>
 
 </div>
 </div>
 
 </div>
-    </div></section><section>
+    </div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>for some types, there might be <strong>more meaningful ways</strong> to vertically <strong>store successive values</strong> than inside of an <code>Array</code></li>
-<li><code>vcat</code>: allows <strong>combination</strong> of objects in specified <strong>structure</strong></li>
-</ul>
-
+<h2 id="Iterators">Iterators<a class="anchor-link" href="#Iterators">&#182;</a></h2>
 </div>
 </div>
 </div><div class="fragment" data-fragment-index="22">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Iteration</strong> over all entries of a variable can be done <strong>without</strong> manual <strong>indexing</strong>.</p>
+
+</div>
+</div>
+</div>
+        </div><div class="fragment" data-fragment-index="22">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span> <span class="s">&quot;, &quot;</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1, 2, 3, </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+        </div><div class="fragment" data-fragment-index="26">
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="k">for</span> <span class="n">entry</span> <span class="k">in</span> <span class="n">a</span>
+    <span class="n">print</span><span class="p">(</span><span class="n">entry</span><span class="p">,</span> <span class="s">&quot;, &quot;</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1, 2, 3, </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Multiple-simultaneous-assignments">Multiple simultaneous assignments<a class="anchor-link" href="#Multiple-simultaneous-assignments">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="26">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Values of a tuple or array can be <strong>simultaneously</strong> be <strong>assigned</strong> to individual variables.</p>
+
+</div>
+</div>
+</div>
+        </div><div class="fragment" data-fragment-index="26">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">vcat</span><span class="p">([</span><span class="mi">1</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">])</span>
+<div class=" highlight hl-julia"><pre><span class="n">a</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">(</span><span class="n">nRows</span><span class="p">,</span> <span class="n">nCol</span><span class="p">)</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">nRows</span>
 </pre></div>
 
 </div>
@@ -746,9 +805,7 @@ div.output_prompt {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2x2 Array{Int64,2}:
- 1  2
- 1  2</pre>
+<pre>10</pre>
 </div>
 
 </div>
@@ -757,27 +814,15 @@ div.output_prompt {
 </div>
 
 </div>
-        </div></section><section>
+        </div><div class="fragment" data-fragment-index="30">
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><code>vcat</code> also works for <strong>variable</strong> number of <strong>input arguments</strong>:</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="22">
-        
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">kk</span> <span class="o">=</span> <span class="p">([</span><span class="mi">1</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span> <span class="mi">6</span><span class="p">])</span>
+<div class=" highlight hl-julia"><pre><span class="p">(</span><span class="n">mu1</span><span class="p">,</span> <span class="n">mu2</span><span class="p">)</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">mu1</span>
 </pre></div>
 
 </div>
@@ -792,15 +837,7 @@ div.output_prompt {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(
-1x2 Array{Int64,2}:
- 1  2,
-
-1x2 Array{Int64,2}:
- 3  4,
-
-1x2 Array{Int64,2}:
- 5  6)</pre>
+<pre>0.5271161360696317</pre>
 </div>
 
 </div>
@@ -809,14 +846,14 @@ div.output_prompt {
 </div>
 
 </div>
-        </div><div class="fragment" data-fragment-index="22">
-        
+    </div><div class="fragment" data-fragment-index="31">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">vcat</span><span class="p">(</span><span class="n">kk</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">kk</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">kk</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<div class=" highlight hl-julia"><pre><span class="n">mu2</span>
 </pre></div>
 
 </div>
@@ -831,318 +868,7 @@ div.output_prompt {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>3x2 Array{Int64,2}:
- 1  2
- 3  4
- 5  6</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>together with splicing, <code>vcat</code> conveniently <strong>transforms tuple</strong> of values <strong>into</strong> concise <strong><code>Array</code></strong>:</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="22">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">vcat</span><span class="p">(</span><span class="n">kk</span><span class="o">...</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3x2 Array{Int64,2}:
- 1  2
- 3  4
- 5  6</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div><div class="fragment" data-fragment-index="30">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">vcat</span><span class="p">([[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="o">...</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4x2 Array{Int64,2}:
- 1  2
- 1  2
- 1  2
- 1  2</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-    </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong><code>[ ]</code></strong> applied to <strong>spliced elements</strong> implicitly <strong>calls <code>vcat</code></strong></li>
-<li>applied to <code>Array{Int,2}</code>, this results in <strong>two-dimensional Array</strong></li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="30">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">kk</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-<span class="p">[</span><span class="n">kk</span><span class="o">...</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4x2 Array{Int64,2}:
- 1  2
- 1  2
- 1  2
- 1  2</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>both steps performed <strong>simultaneously</strong>:</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="30">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="p">[[[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span><span class="o">...</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4x2 Array{Int64,2}:
- 1  2
- 1  2
- 1  2
- 1  2</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong>alternatively</strong>, same result could be achieved <strong>without splicing</strong> through usage of <strong>two index variables</strong></li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="30">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="p">[</span><span class="n">jj</span> <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="n">jj</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4x2 Array{Int64,2}:
- 1  2
- 1  2
- 1  2
- 1  2</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>in general, <strong>splicing and comprehension</strong> allows for <strong>data structures different to <code>Array</code></strong> </li>
-<li>for <strong>example</strong>, application of splicing and comprehension to <strong><code>DataFrames</code></strong> will return a <code>DataFrame</code> again</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="30">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">df</span><span class="p">[:</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="p">@</span><span class="n">data</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">NA</span><span class="p">])</span>
-<span class="n">df</span><span class="p">[:</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">@</span><span class="n">data</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="n">NA</span><span class="p">])</span>
-
-<span class="n">kk</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">df</span><span class="p">)</span>
-<span class="n">xx</span> <span class="o">=</span> <span class="p">[</span><span class="n">kk</span><span class="o">...</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><tr><th></th><th>a</th><th>b</th></tr><tr><th>1</th><td>5</td><td>8</td></tr><tr><th>2</th><td>6</td><td>NA</td></tr><tr><th>3</th><td>NA</td><td>NA</td></tr><tr><th>4</th><td>5</td><td>8</td></tr><tr><th>5</th><td>6</td><td>NA</td></tr><tr><th>6</th><td>NA</td><td>NA</td></tr></table>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div><div class="fragment" data-fragment-index="39">
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="nb">typeof</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>DataFrame (constructor with 11 methods)</pre>
+<pre>0.426256324570898</pre>
 </div>
 
 </div>
@@ -1160,60 +886,368 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Iterators">Iterators<a class="anchor-link" href="#Iterators">&#182;</a></h1>
+<h2 id="Comprehensions">Comprehensions<a class="anchor-link" href="#Comprehensions">&#182;</a></h2>
 </div>
 </div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>under the hood, comprehensions make use of iterators:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="39">
+</div><div class="fragment" data-fragment-index="31">
         
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>iterators <strong>successively return</strong> values from a <strong>collection</strong></li>
-<li>iterators can be <strong>specified for each type</strong></li>
-</ul>
+<p>Comprehension is an easy way to <strong>create arrays</strong> where individual entries follow some structure.</p>
 
 </div>
 </div>
 </div>
+        </div><div class="fragment" data-fragment-index="31">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>10-element Array{Int64,1}:
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
         </div></section><section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">ii</span> <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>10-element Array{Int64,1}:
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">exp</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span> <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>10-element Array{Float64,1}:
+     4.71828
+     9.38906
+    22.0855 
+    56.5982 
+   150.413  
+   405.429  
+  1098.63   
+  2982.96   
+  8105.08   
+ 22028.5    </pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">ii</span> <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="n">jj</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">jj</span> <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="n">jj</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(
+10x10 Array{Int64,2}:
+  1   1   1   1   1   1   1   1   1   1
+  2   2   2   2   2   2   2   2   2   2
+  3   3   3   3   3   3   3   3   3   3
+  4   4   4   4   4   4   4   4   4   4
+  5   5   5   5   5   5   5   5   5   5
+  6   6   6   6   6   6   6   6   6   6
+  7   7   7   7   7   7   7   7   7   7
+  8   8   8   8   8   8   8   8   8   8
+  9   9   9   9   9   9   9   9   9   9
+ 10  10  10  10  10  10  10  10  10  10,
+
+10x10 Array{Int64,2}:
+ 1  2  3  4  5  6  7  8  9  10
+ 1  2  3  4  5  6  7  8  9  10
+ 1  2  3  4  5  6  7  8  9  10
+ 1  2  3  4  5  6  7  8  9  10
+ 1  2  3  4  5  6  7  8  9  10
+ 1  2  3  4  5  6  7  8  9  10
+ 1  2  3  4  5  6  7  8  9  10
+ 1  2  3  4  5  6  7  8  9  10
+ 1  2  3  4  5  6  7  8  9  10
+ 1  2  3  4  5  6  7  8  9  10)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="k">using</span> <span class="n">Dates</span>
+<span class="n">dats</span> <span class="o">=</span> <span class="p">[</span><span class="n">Date</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">ii</span><span class="p">)</span> <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>10-element Array{Date,1}:
+ 2012-04-01
+ 2012-04-02
+ 2012-04-03
+ 2012-04-04
+ 2012-04-05
+ 2012-04-06
+ 2012-04-07
+ 2012-04-08
+ 2012-04-09
+ 2012-04-10</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section><section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">whichYear</span> <span class="o">=</span> <span class="p">[</span><span class="n">year</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="k">for</span> <span class="n">dt</span> <span class="k">in</span> <span class="n">dats</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>10-element Array{Any,1}:
+ 2012
+ 2012
+ 2012
+ 2012
+ 2012
+ 2012
+ 2012
+ 2012
+ 2012
+ 2012</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>for example: <strong>column iterator of <code>DataFrames</code></strong>, which returns a tuple with column name and values given as <code>DataArray</code> for each column</li>
-</ul>
+<h2 id="Square-bracket-indexing">Square bracket indexing<a class="anchor-link" href="#Square-bracket-indexing">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="31">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The syntax for <strong>indexing</strong> of variables makes use of with <strong>square brackets</strong>. This way, <strong>functions and variables</strong> can immediately <strong>be distinguished</strong> at first sight. Some languages - Matlab, for example - do not share this property.</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="39">
+</div>
+        </div><div class="fragment" data-fragment-index="31">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+        </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Inline-function-definitions">Inline function definitions<a class="anchor-link" href="#Inline-function-definitions">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="31">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Functions</strong> can be <strong>defined anywhere</strong> in the file, and need not reside in a separate file. This allows easy and natural decomposition of <strong>large tasks into separate pieces</strong>.</p>
+
+</div>
+</div>
+</div>
+        </div><div class="fragment" data-fragment-index="31">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">df</span><span class="p">[:</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="p">@</span><span class="n">data</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">NA</span><span class="p">])</span>
-<span class="n">df</span><span class="p">[:</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">@</span><span class="n">data</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="n">NA</span><span class="p">])</span>
-
-<span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">df</span><span class="p">)]</span>
+<div class=" highlight hl-julia"><pre><span class="k">function</span><span class="nf"> addTwo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">y</span>
+<span class="k">end</span>
 </pre></div>
 
 </div>
@@ -1228,9 +1262,7 @@ div.output_prompt {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2-element Array{(Any,Any),1}:
- (:a,[5,6,NA]) 
- (:b,[8,NA,NA])</pre>
+<pre>addTwo (generic function with 1 method)</pre>
 </div>
 
 </div>
@@ -1239,28 +1271,14 @@ div.output_prompt {
 </div>
 
 </div>
-        </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>although <strong>comprehension</strong> is a quite convenient way to <strong>show the values of an iterator</strong>, keep in mind that it also <strong>automatically</strong> captures the result in an <strong><code>Array</code></strong></li>
-<li>this might be <strong>unnecessarily costly</strong> in some regard<strong>?</strong> (time consuming, allocating more memory, ...)</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="39">
+        </div><div class="fragment" data-fragment-index="31">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="p">@</span><span class="n">time</span> <span class="n">kk</span> <span class="o">=</span> <span class="p">[</span><span class="n">display</span><span class="p">(</span><span class="n">col</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">df</span><span class="p">)]</span>
+<div class=" highlight hl-julia"><pre><span class="n">addTwo</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -1271,38 +1289,11 @@ div.output_prompt {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-
-
-<div class="output_text output_subarea ">
-<pre>(:a,[5,6,NA])</pre>
-</div>
-
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-
-
-<div class="output_text output_subarea ">
-<pre>(:b,[8,NA,NA])</pre>
-</div>
-
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>elapsed time: 0.075189836 seconds (1745540 bytes allocated)
-</pre>
-</div>
-</div>
-
 <div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2-element Array{Any,1}:
- nothing
- nothing</pre>
+<pre>4</pre>
 </div>
 
 </div>
@@ -1318,22 +1309,18 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>for comparison, only displaying iterated elements:</li>
-</ul>
+<p>Like in other languages, functions <strong>naturally extend to vector inputs</strong>.</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="39">
+</div><div class="fragment" data-fragment-index="31">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="p">@</span><span class="n">time</span> <span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span class="n">addTwo</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1344,56 +1331,63 @@ div.output_prompt {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
 
 
-<div class="output_text output_subarea ">
-<pre>(:a,[5,6,NA])</pre>
+<div class="output_text output_subarea output_execute_result">
+<pre>10x10 Array{Int64,2}:
+  3   3   3   3   3   3   3   3   3   3
+  4   4   4   4   4   4   4   4   4   4
+  5   5   5   5   5   5   5   5   5   5
+  6   6   6   6   6   6   6   6   6   6
+  7   7   7   7   7   7   7   7   7   7
+  8   8   8   8   8   8   8   8   8   8
+  9   9   9   9   9   9   9   9   9   9
+ 10  10  10  10  10  10  10  10  10  10
+ 11  11  11  11  11  11  11  11  11  11
+ 12  12  12  12  12  12  12  12  12  12</pre>
 </div>
 
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-
-
-<div class="output_text output_subarea ">
-<pre>(:b,[8,NA,NA])</pre>
-</div>
-
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>elapsed time: 0.001346607 seconds (32144 bytes allocated)
-</pre>
-</div>
 </div>
 
 </div>
 </div>
 
 </div>
-        </div></section><section>
+        </div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong><code>DataFrame</code> iterator</strong> returns tuple, so that <strong>values only</strong> (without column name) are obtained <strong>through indexing</strong></li>
-</ul>
+<h2 id="Splicing">Splicing<a class="anchor-link" href="#Splicing">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="31">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Splicing function arguments allows seamlessly switching between functions that require <strong>separate arguments</strong> on the one hand, and functions that require <strong>individual arguments combined in one array</strong>.</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="39">
+</div>
+        </div><div class="fragment" data-fragment-index="31">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="p">[</span><span class="n">col</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">df</span><span class="p">)]</span>
+<div class=" highlight hl-julia"><pre><span class="k">function</span><span class="nf"> multipleArguments</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span> <span class="o">+</span> <span class="n">e</span> <span class="o">+</span> <span class="n">f</span>
+<span class="k">end</span>
 </pre></div>
 
 </div>
@@ -1408,9 +1402,7 @@ div.output_prompt {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2-element Array{Any,1}:
- [5,6,NA] 
- [8,NA,NA]</pre>
+<pre>multipleArguments (generic function with 1 method)</pre>
 </div>
 
 </div>
@@ -1421,79 +1413,13 @@ div.output_prompt {
 </div>
         </div></section><section>
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>two <strong>applications of iterators</strong> come to mind immediately:</p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="39">
-        
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>iteratively manipulating entries of a type</li>
-<li>building a new object by iteratively using an existing object</li>
-</ul>
-
-</div>
-</div>
-</div>
-        </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Iteratively-manipulating-entries">Iteratively manipulating entries<a class="anchor-link" href="#Iteratively-manipulating-entries">&#182;</a></h2>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>example: <strong>iteratively manipulating columns of <code>DataFrame</code></strong></p>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="39">
-        
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>as seen above, values need to be referenced within column iterator tuple with subindex 2</li>
-<li><strong>setting first entry of each column to 10</strong>:</li>
-</ul>
-
-</div>
-</div>
-</div>
-        </div><div class="fragment" data-fragment-index="39">
-        
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-    <span class="n">col</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k">end</span>
-<span class="n">df</span>
+<div class=" highlight hl-julia"><pre><span class="n">vals</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">multipleArguments</span><span class="p">(</span><span class="n">vals</span><span class="o">...</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1506,8 +1432,9 @@ div.output_prompt {
 
 <div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><tr><th></th><th>a</th><th>b</th></tr><tr><th>1</th><td>10</td><td>10</td></tr><tr><th>2</th><td>6</td><td>NA</td></tr><tr><th>3</th><td>NA</td><td>NA</td></tr></table>
+
+<div class="output_text output_subarea output_execute_result">
+<pre>21</pre>
 </div>
 
 </div>
@@ -1515,34 +1442,15 @@ div.output_prompt {
 </div>
 </div>
 
-</div>
-        </div></section><section>
+</div><div class="fragment" data-fragment-index="53">
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>let's try <strong>multiplying each column by 10</strong>:</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="39">
-        
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">try</span>
-    <span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-        <span class="n">col</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">col</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.*</span><span class="mi">10</span>
-    <span class="k">end</span>
-<span class="k">catch</span> <span class="n">e</span>
-    <span class="n">show</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">multipleArguments</span><span class="p">(</span><span class="n">vals</span><span class="o">...</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1553,40 +1461,61 @@ div.output_prompt {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>MethodError(setindex!,((:a,[10,6,NA]),[100,60,NA],2))</pre>
+<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>21</pre>
 </div>
+
 </div>
 
 </div>
 </div>
 
 </div>
-        </div></section><section>
+    </div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>the <strong>correct way</strong> is:</li>
-</ul>
+<h2 id="Multiple-dispatch">Multiple dispatch<a class="anchor-link" href="#Multiple-dispatch">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="53">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Function behaviour</strong> may vary <strong>depending on</strong> the type of the <strong>arguments</strong>. This way, multiple functions with equal name may co-exist.</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="39">
+</div>
+        </div><div class="fragment" data-fragment-index="53">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-    <span class="n">col</span><span class="p">[</span><span class="mi">2</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">col</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.*</span><span class="mi">10</span>
+<div class=" highlight hl-julia"><pre><span class="k">function</span><span class="nf"> reciprocalValue</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="kt">Int</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span>
 <span class="k">end</span>
-<span class="n">df</span>
+
+<span class="k">function</span><span class="nf"> reciprocalValue</span><span class="p">(</span><span class="n">x</span><span class="p">::</span><span class="n">ASCIIString</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">uppercase</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="nf"> reciprocalValue</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Method only makes sense for numbers and strings&quot;</span><span class="p">)</span>
+<span class="k">end</span>
 </pre></div>
 
 </div>
@@ -1599,8 +1528,9 @@ div.output_prompt {
 
 <div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><tr><th></th><th>a</th><th>b</th></tr><tr><th>1</th><td>100</td><td>100</td></tr><tr><th>2</th><td>60</td><td>NA</td></tr><tr><th>3</th><td>NA</td><td>NA</td></tr></table>
+
+<div class="output_text output_subarea output_execute_result">
+<pre>reciprocalValue (generic function with 3 methods)</pre>
 </div>
 
 </div>
@@ -1611,33 +1541,12 @@ div.output_prompt {
 </div>
         </div></section><section>
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>applying a similar logic for the <strong>manipulation of</strong> entries of an <strong><code>Array{Int, 1}</code> fails</strong>:</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="39">
-        
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">kk</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="k">try</span>
-    <span class="k">for</span> <span class="n">entry</span> <span class="k">in</span> <span class="n">kk</span>
-        <span class="n">entry</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span><span class="o">*</span><span class="mi">5</span>
-    <span class="k">end</span>
-<span class="k">catch</span> <span class="n">e</span>
-    <span class="n">show</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="k">end</span>
-<span class="n">kk</span>
+<div class=" highlight hl-julia"><pre><span class="n">reciprocalValue</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1648,21 +1557,11 @@ div.output_prompt {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>MethodError(setindex!,(1,5,1))</pre>
-</div>
-</div>
-
 <div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>4-element Array{Int64,1}:
- 1
- 2
- 3
- 4</pre>
+<pre>0.125</pre>
 </div>
 
 </div>
@@ -1670,29 +1569,14 @@ div.output_prompt {
 </div>
 </div>
 
-</div>
-        </div></section><section>
+</div><div class="fragment" data-fragment-index="58">
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>trying <strong>similar transformation of</strong> columns of a <strong><code>Timenum</code></strong> object</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="39">
-        
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">dats</span> <span class="o">=</span> <span class="p">[</span><span class="n">Date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span><span class="n">Date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)]</span>
-<span class="n">tn</span> <span class="o">=</span> <span class="n">Timenum</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dats</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span class="n">reciprocalValue</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1705,8 +1589,9 @@ div.output_prompt {
 
 <div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<p><strong>Timenum{Date}</strong></p><p>Dimensions: <strong>(3, 2)</strong></p><p>From: <strong>2014-01-01</strong>, To: <strong>2014-01-03</strong></p><table class="data-frame"><tr><th></th><th>idx</th><th>a</th><th>b</th></tr><tr><th>1</th><td>2014-01-01</td><td>100</td><td>100</td></tr><tr><th>2</th><td>2014-01-02</td><td>60</td><td>NA</td></tr><tr><th>3</th><td>2014-01-03</td><td>NA</td><td>NA</td></tr></table>
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&quot;HELLO&quot;</pre>
 </div>
 
 </div>
@@ -1715,81 +1600,14 @@ div.output_prompt {
 </div>
 
 </div>
-        </div></section><section>
+    </div><div class="fragment" data-fragment-index="59">
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong>iterative multiplication</strong> of columns: <strong>fails</strong> (without error!) as <code>setindex!</code> methods are not defined</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="39">
-        
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachvar</span><span class="p">(</span><span class="n">tn</span><span class="p">)</span>
-    <span class="n">col</span> <span class="o">=</span> <span class="n">col</span><span class="o">.*</span><span class="mi">2</span>
-<span class="k">end</span>
-<span class="n">tn</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<p><strong>Timenum{Date}</strong></p><p>Dimensions: <strong>(3, 2)</strong></p><p>From: <strong>2014-01-01</strong>, To: <strong>2014-01-03</strong></p><table class="data-frame"><tr><th></th><th>idx</th><th>a</th><th>b</th></tr><tr><th>1</th><td>2014-01-01</td><td>100</td><td>100</td></tr><tr><th>2</th><td>2014-01-02</td><td>60</td><td>NA</td></tr><tr><th>3</th><td>2014-01-03</td><td>NA</td><td>NA</td></tr></table>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>we need <strong>detour to</strong> the underlying <strong><code>DataFrame</code></strong></li>
-<li><strong>be cautious</strong> to correctly index the entries: the following code is <strong>not working</strong></li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="39">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">try</span>
-    <span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">tn</span><span class="p">)</span>
-        <span class="n">col</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">col</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.*</span><span class="mi">2</span>
-        <span class="n">display</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">vals</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-    <span class="k">end</span>
-<span class="k">catch</span> <span class="n">e</span>
-    <span class="n">show</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="k">end</span>
+<div class=" highlight hl-julia"><pre><span class="n">reciprocalValue</span><span class="p">(</span><span class="n">NaN</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1802,7 +1620,8 @@ div.output_prompt {
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>MethodError(setindex!,((:a,[100,60,NA]),[200,120,NA],2))</pre>
+<pre>Method only makes sense for numbers and strings
+</pre>
 </div>
 </div>
 
@@ -1810,30 +1629,56 @@ div.output_prompt {
 </div>
 
 </div>
-        </div></section><section>
+    </div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>we need an <strong>additional colon indexing</strong> to write into an existing column</li>
-</ul>
+<h2 id="Composite-types">Composite types<a class="anchor-link" href="#Composite-types">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="59">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One can easily define highly customized <strong>own types</strong>. Through multiple dispatch, behaviour of common <strong>mathematical operators</strong> can be <strong>defined for any new type</strong>.</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="39">
+</div>
+        </div><div class="fragment" data-fragment-index="59">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="k">type</span><span class="nc"> simplexPoint</span>
+    <span class="n">x</span>
+    <span class="n">y</span>
+<span class="k">end</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+        </div><div class="fragment" data-fragment-index="59">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">tn</span><span class="p">)</span>
-    <span class="n">col</span><span class="p">[</span><span class="mi">2</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">col</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.*</span><span class="mi">2</span>
-<span class="k">end</span>
-<span class="n">tn</span>
+<div class=" highlight hl-julia"><pre><span class="n">sp</span> <span class="o">=</span> <span class="n">simplexPoint</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1846,8 +1691,9 @@ div.output_prompt {
 
 <div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<p><strong>Timenum{Date}</strong></p><p>Dimensions: <strong>(3, 2)</strong></p><p>From: <strong>2014-01-01</strong>, To: <strong>2014-01-03</strong></p><table class="data-frame"><tr><th></th><th>idx</th><th>a</th><th>b</th></tr><tr><th>1</th><td>2014-01-01</td><td>200</td><td>200</td></tr><tr><th>2</th><td>2014-01-02</td><td>120</td><td>NA</td></tr><tr><th>3</th><td>2014-01-03</td><td>NA</td><td>NA</td></tr></table>
+
+<div class="output_text output_subarea output_execute_result">
+<pre>simplexPoint(0.4,0.6)</pre>
 </div>
 
 </div>
@@ -1856,42 +1702,18 @@ div.output_prompt {
 </div>
 
 </div>
-        </div></section>
-    </section><section>
-    <section>
+        </div></section><section>
     
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Creating-new-objects-by-iteratively-manipulating-existing-objects">Creating new objects by iteratively manipulating existing objects<a class="anchor-link" href="#Creating-new-objects-by-iteratively-manipulating-existing-objects">&#182;</a></h2>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>iterator protocols make <strong>recursive data manipulation</strong> easy</li>
-<li>combined <strong>with comprehension</strong>, this allows for <strong>easy creation of new objects</strong></li>
-<li>for <strong>example</strong>: creating <code>Array</code> of squared entries</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="39">
-        
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">kk</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">]</span>
-<span class="n">kk2</span> <span class="o">=</span> <span class="p">[</span><span class="n">ii</span><span class="o">.^</span><span class="mi">2</span> <span class="k">for</span> <span class="n">ii</span> <span class="k">in</span> <span class="n">kk</span><span class="p">]</span>
+<div class=" highlight hl-julia"><pre><span class="k">function</span><span class="nf"> reciprocalValue</span><span class="p">(</span><span class="n">sp</span><span class="p">::</span><span class="n">simplexPoint</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">simplexPoint</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">reciprocalValue</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -1906,11 +1728,7 @@ div.output_prompt {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>4-element Array{Any,1}:
-  1
-  4
-  9
- 16</pre>
+<pre>simplexPoint(0.6,0.4)</pre>
 </div>
 
 </div>
@@ -1918,51 +1736,49 @@ div.output_prompt {
 </div>
 </div>
 
-</div>
-        </div></section><section>
+</div></section>
+    </section><section>
+    <section>
     
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>again, there might be <strong>more meaningful ways</strong> to combine the individual parts than an <strong><code>Array</code></strong> as we get it from comprehension</li>
-</ul>
+<h2 id="Macros">Macros<a class="anchor-link" href="#Macros">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="59">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Julia comes with quite powerful <strong>metaprogramming skills</strong>. This allows you to work with both the values that are stored in the variables and the names of variables and functions that were used in the call. This way, you can <strong>take some code, manipulate it, and only then you evaluate it</strong>.</p>
+<p>One example is the <strong>@stoptime macro</strong>. Before the macro evaluates the input, it starts a stopwatch, and it displays the time that was required after the evalution.</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="39">
+</div>
+        </div><div class="fragment" data-fragment-index="59">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">df</span><span class="p">[:</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="p">@</span><span class="n">data</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">NA</span><span class="p">])</span>
-<span class="n">df</span><span class="p">[:</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">@</span><span class="n">data</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="n">NA</span><span class="p">,</span> <span class="n">NA</span><span class="p">])</span>
-
-<span class="n">dats</span> <span class="o">=</span> <span class="p">[</span><span class="n">Date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span><span class="n">Date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)]</span>
-<span class="n">tn</span> <span class="o">=</span> <span class="n">Timenum</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dats</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span class="k">macro</span> <span class="n">stoptime</span><span class="p">(</span><span class="n">expr</span><span class="p">)</span>
+    <span class="k">quote</span>
+        <span class="n">hhhh</span> <span class="o">=</span> <span class="mi">3</span> <span class="c"># some line of nonsense to show variable scope</span>
+        <span class="n">tic</span><span class="p">()</span>
+        <span class="o">$</span><span class="p">(</span><span class="n">esc</span><span class="p">(</span><span class="n">expr</span><span class="p">))</span>
+        <span class="n">toc</span><span class="p">()</span>
+    <span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<p><strong>Timenum{Date}</strong></p><p>Dimensions: <strong>(3, 2)</strong></p><p>From: <strong>2014-01-01</strong>, To: <strong>2014-01-03</strong></p><table class="data-frame"><tr><th></th><th>idx</th><th>a</th><th>b</th></tr><tr><th>1</th><td>2014-01-01</td><td>5</td><td>8</td></tr><tr><th>2</th><td>2014-01-02</td><td>6</td><td>NA</td></tr><tr><th>3</th><td>2014-01-03</td><td>NA</td><td>NA</td></tr></table>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -1974,7 +1790,8 @@ div.output_prompt {
 <div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">kk</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachvar</span><span class="p">(</span><span class="n">tn</span><span class="p">)]</span>
+<div class=" highlight hl-julia"><pre><span class="p">@</span><span class="n">stoptime</span> <span class="n">repChar</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span>
+<span class="n">repChar</span>
 </pre></div>
 
 </div>
@@ -1985,23 +1802,44 @@ div.output_prompt {
 <div class="output">
 
 
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>elapsed time: 0.949734229 seconds
+</pre>
+</div>
+</div>
+
 <div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>2-element Array{Any,1}:
- Timenum{Date}(3x1 DataFrame
-| Row | a  |
-|-----|----|
-| 1   | 10 |
-| 2   | 12 |
-| 3   | NA |,[2014-01-01,2014-01-02,2014-01-03])
- Timenum{Date}(3x1 DataFrame
-| Row | b  |
-|-----|----|
-| 1   | 16 |
-| 2   | NA |
-| 3   | NA |,[2014-01-01,2014-01-02,2014-01-03])</pre>
+<pre>1000x1000 Array{Float64,2}:
+  0.178363   -0.162743   -0.0254373   …  -0.00384031  -0.063538   
+ -0.0803985   0.118439    0.01193         0.0903718    0.0675967  
+ -0.0284457  -0.0390301  -0.0196053       0.00446068  -0.000667719
+  0.150812    0.0126206   0.0236722       0.0308458   -0.0932575  
+ -0.123411   -0.0426361  -0.0873105      -0.00503272   0.0157746  
+  0.214565   -0.115128   -0.0318926   …   0.0969399   -0.0998336  
+ -0.347367   -0.0609739  -0.172953       -0.0747402    0.122522   
+ -0.204523   -0.0351727  -0.0692144      -0.0144602   -0.00136389 
+  0.13185    -0.0733354  -0.0482174       0.0287405   -0.143989   
+  0.0883469  -0.0947949  -0.0697139       0.0313077   -0.105953   
+ -0.129635    0.0566574   0.065695    …  -0.0798233    0.0216424  
+  0.0717952   0.0307056   0.104658       -0.0263899    0.0151857  
+ -0.439015    0.22097     0.166334       -0.00273109   0.0900819  
+  ⋮                                   ⋱                           
+ -0.0784419  -0.183168   -0.140212       -0.0602018    0.0352725  
+ -0.298269   -0.0771679  -0.108061       -0.00613091   0.105007   
+  0.170605    0.0200547   0.0724004   …   0.0164545   -0.0615973  
+  0.0881894   0.140063    0.0796897       0.0677917    0.0218051  
+ -0.0776588  -0.171787   -0.128733        0.0106796   -0.0193732  
+ -0.152816   -0.0519178  -0.0670922      -0.00816523   0.0980098  
+ -0.31304    -0.0735723  -0.0405657       0.00675744   0.129876   
+  0.204485    0.0854393   0.0869174   …   0.0458707    0.00223715 
+  0.384736    0.106793    0.210468       -0.079883    -0.250716   
+  0.48209     0.0383054   0.0766118       0.0662156   -0.255816   
+  0.10385    -0.029067   -0.00391804      0.00494362  -0.0123786  
+ -0.0113096  -0.0315841  -0.0529644      -0.0250712    0.0265644  </pre>
 </div>
 
 </div>
@@ -2016,14 +1854,11 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>as we <strong>iterate over columns</strong>, results should be <strong>combined horizontally</strong></li>
-<li>simple <strong>splicing</strong> is not sufficient here, as it <strong>uses <code>vcat</code></strong>:</li>
-</ul>
+<p>Macros evaluate in a <strong>separate workspace</strong>.</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="39">
+</div><div class="fragment" data-fragment-index="59">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -2031,7 +1866,7 @@ div.output_prompt {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span class="k">try</span>
-    <span class="p">[[</span><span class="n">col</span><span class="o">.*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachvar</span><span class="p">(</span><span class="n">tn</span><span class="p">)]</span><span class="o">...</span><span class="p">]</span>
+    <span class="n">hhhh</span>
     <span class="k">catch</span> <span class="n">e</span>
     <span class="n">show</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 <span class="k">end</span>
@@ -2047,7 +1882,7 @@ div.output_prompt {
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>ErrorException(&quot;variable names must coincide for vcat&quot;)</pre>
+<pre>UndefVarError(:hhhh)</pre>
 </div>
 </div>
 
@@ -2062,20 +1897,18 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>we need <strong><code>hcat</code> instead</strong>:</li>
-</ul>
+<p>Using the <em>macroexpand</em> function one can easily look at the complete code that gets evaluated by the macro.</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="39">
+</div><div class="fragment" data-fragment-index="59">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">hcat</span><span class="p">([</span><span class="n">col</span><span class="o">.*</span><span class="mi">2</span> <span class="k">for</span> <span class="n">col</span> <span class="k">in</span> <span class="n">eachvar</span><span class="p">(</span><span class="n">tn</span><span class="p">)]</span><span class="o">...</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span class="n">macroexpand</span><span class="p">(:(@</span><span class="n">stoptime</span> <span class="n">repChar</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))))</span>
 </pre></div>
 
 </div>
@@ -2088,8 +1921,14 @@ div.output_prompt {
 
 <div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
 
-<div class="output_html rendered_html output_subarea output_execute_result">
-<p><strong>Timenum{Date}</strong></p><p>Dimensions: <strong>(3, 2)</strong></p><p>From: <strong>2014-01-01</strong>, To: <strong>2014-01-03</strong></p><table class="data-frame"><tr><th></th><th>idx</th><th>a</th><th>b</th></tr><tr><th>1</th><td>2014-01-01</td><td>10</td><td>16</td></tr><tr><th>2</th><td>2014-01-02</td><td>12</td><td>NA</td></tr><tr><th>3</th><td>2014-01-03</td><td>NA</td><td>NA</td></tr></table>
+
+<div class="output_text output_subarea output_execute_result">
+<pre>quote  # In[35], line 3:
+    #412#hhhh = 3 # line 4:
+    tic() # line 5:
+    repChar = inv(rand(1000,1000)) # line 6:
+    toc()
+end</pre>
 </div>
 
 </div>
@@ -2098,178 +1937,70 @@ div.output_prompt {
 </div>
 
 </div>
-        </div><div class="fragment" data-fragment-index="39">
+        </div><div class="fragment" data-fragment-index="59">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Of course, this stopwatch macro already exists in Julia. It is called @time.</p>
+
+</div>
+</div>
+</div>
+        </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Another example is the @test macro, which allows extremely convenient testing of code.</p>
+
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="59">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">DataArray</span><span class="p">[</span><span class="n">tn</span><span class="o">.</span><span class="n">vals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">tn</span><span class="o">.</span><span class="n">vals</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+<div class=" highlight hl-julia"><pre><span class="k">using</span> <span class="n">Base</span><span class="o">.</span><span class="n">Test</span>
+<span class="p">@</span><span class="n">test</span> <span class="mi">3</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[39]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1x2 Array{DataArray{T,N},2}:
- [5,6,NA]  [8,NA,NA]</pre>
 </div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div><div class="fragment" data-fragment-index="82">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>instead of manually combining manipulated values from an iterator each time, we also could define a <strong>default data structure returned</strong> through function <strong><code>map</code></strong></li>
-</ul>
-
-</div>
-</div>
-</div>
-    </div></section>
-    </section><section>
-    <section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Map">Map<a class="anchor-link" href="#Map">&#182;</a></h2>
-</div>
-</div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>through <strong>multiple dispatch</strong>, the <strong>output</strong> of <code>map</code> can be <strong>customized to the iterator type</strong> used</li>
-<li>for example: <strong>multiplication of each <code>DataFrame</code> column</strong> could be done <strong>in two different ways</strong></li>
-<li><strong>first way</strong>: <strong>iterating over</strong> entries of an <strong><code>Array</code></strong> (which contains the column names) will return an <code>Array</code></li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="82">
+        </div><div class="fragment" data-fragment-index="59">
         
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As a macro also receives the actual variable names during its call, it can print out the actual call if the test fails.</p>
+
+</div>
+</div>
+</div>
+        </div><div class="fragment" data-fragment-index="77">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
-<span class="n">map</span><span class="p">(</span><span class="n">nam</span> <span class="o">-&gt;</span> <span class="n">df</span><span class="p">[</span><span class="n">nam</span><span class="p">]</span><span class="o">.*</span><span class="mi">2</span><span class="p">,</span> <span class="n">names</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2-element Array{DataArray{Int64,1},1}:
- [2,4,6]  
- [8,10,12]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><strong>second way</strong>: using method <code>map</code> for <strong><code>DataFrame</code> column iterator</strong></li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="82">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">df2</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">col</span> <span class="o">-&gt;</span> <span class="n">col</span><span class="o">.*</span><span class="mi">2</span><span class="p">,</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
-<span class="n">df2</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[41]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><tr><th></th><th>a</th><th>b</th></tr><tr><th>1</th><td>2</td><td>8</td></tr><tr><th>2</th><td>4</td><td>10</td></tr><tr><th>3</th><td>6</td><td>12</td></tr></table>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>similarly: <strong>map</strong> for <strong>TimeData iterators</strong></li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="82">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="p">@</span><span class="n">time</span> <span class="n">tn2</span> <span class="o">=</span> <span class="n">map</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.*</span><span class="mi">2</span><span class="p">,</span> <span class="n">eachvar</span><span class="p">(</span><span class="n">tn</span><span class="p">))</span>
+<div class=" highlight hl-julia"><pre><span class="n">kk</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="k">try</span>
+    <span class="p">@</span><span class="n">test</span> <span class="n">kk</span> <span class="o">==</span> <span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">catch</span> <span class="n">e</span>
+    <span class="n">show</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="k">end</span>
 </pre></div>
 
 </div>
@@ -2282,36 +2013,13 @@ div.output_prompt {
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>elapsed time: 0.055906843 seconds (1649364 bytes allocated)
-</pre>
+<pre>ErrorException(&quot;test failed: kk == 2 + 1&quot;)</pre>
 </div>
-</div>
-
-<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<p><strong>Timedata{Date}</strong></p><p>Dimensions: <strong>(3, 2)</strong></p><p>From: <strong>2014-01-01</strong>, To: <strong>2014-01-03</strong></p><table class="data-frame"><tr><th></th><th>idx</th><th>a</th><th>b</th></tr><tr><th>1</th><td>2014-01-01</td><td>10</td><td>16</td></tr><tr><th>2</th><td>2014-01-02</td><td>12</td><td>NA</td></tr><tr><th>3</th><td>2014-01-03</td><td>NA</td><td>NA</td></tr></table>
-</div>
-
 </div>
 
 </div>
 </div>
 
-</div>
-        </div><div class="fragment" data-fragment-index="90">
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><code>map</code> for <code>TimeData</code> iterators <code>eachvar</code>, <code>eachdate</code> and <code>eachobs</code> always <strong>preserves both indices and column names</strong></li>
-</ul>
-
-</div>
-</div>
 </div>
     </div></section><section>
     
@@ -2320,22 +2028,87 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li><code>map</code> can also be defined for <strong>two collections</strong></li>
-</ul>
+<h5 id="Example:-squaredVariable">Example: squaredVariable<a class="anchor-link" href="#Example:-squaredVariable">&#182;</a></h5>
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="77">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Another example, though not the best style, is the following macro that returns the squared value of any given variable. The value will be stored in a variable that matches the name of the original input variable, but with "_squared" appended. Hence, <strong>his macro messes with the current workspace</strong>, which is generally NOT recommended.</p>
+<p>In this example, however, we explicitly want the code to conduct changes to the workspace that are not directly induced through the expression that is handed over to the macro. The macro uses <em>eval</em> to create a new variable with ending "_squared" in the workspace.</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="90">
+</div>
+        </div><div class="fragment" data-fragment-index="77">
         
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="k">macro</span> <span class="n">squaredVariable</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">println</span><span class="p">(</span><span class="s">&quot;Calculating the squared value of </span><span class="si">$</span><span class="s">a:&quot;</span><span class="p">)</span>
+    <span class="n">newVariableName</span> <span class="o">=</span> <span class="n">symbol</span><span class="p">(</span><span class="n">string</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s">&quot;_squared&quot;</span><span class="p">))</span>
+    <span class="n">eval</span><span class="p">(:(</span><span class="o">$</span><span class="n">newVariableName</span> <span class="o">=</span> <span class="o">$</span><span class="n">a</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span>
+<span class="k">end</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+        </div></section><section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">k</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="p">@</span><span class="n">squaredVariable</span> <span class="n">k</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Calculating the squared value of k:
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment" data-fragment-index="82">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">vals1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span> <span class="mi">20</span><span class="p">]</span>
-<span class="n">vals2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">map</span><span class="p">(</span><span class="o">.+</span><span class="p">,</span> <span class="n">vals1</span><span class="p">,</span> <span class="n">vals2</span><span class="p">)</span>
+<div class=" highlight hl-julia"><pre><span class="n">k_squared</span>
 </pre></div>
 
 </div>
@@ -2350,8 +2123,184 @@ div.output_prompt {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>1x2 Array{Int64,2}:
- 50  21</pre>
+<pre>64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div></section>
+    </section><section>
+    <section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Metaprogramming">Metaprogramming<a class="anchor-link" href="#Metaprogramming">&#182;</a></h2>
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A crucial feature of the Julia language is that the <strong>syntax itself</strong> is just <strong>implemented in the language</strong> just like any other type (Int, Char, ...). Its type is <em>Expr</em>.</p>
+
+</div>
+</div>
+</div>
+        </div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">cmd</span> <span class="o">=</span> <span class="p">:(</span><span class="n">x</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)))</span>
+<span class="nb">typeof</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Expr</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+        </div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As with any other type, you can access its fields, which are:</p>
+
+</div>
+</div>
+</div>
+        </div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">names</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[45]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3-element Array{Symbol,1}:
+ :head
+ :args
+ :typ </pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+        </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hence, you can find the operation in the <em>:head</em> field, and its arguments in the <em>:args</em> field.</p>
+
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">cmd</span><span class="o">.</span><span class="n">head</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>:(=)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+        </div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">cmd</span><span class="o">.</span><span class="n">args</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2-element Array{Any,1}:
+ :x               
+ :(mean(rand(10)))</pre>
 </div>
 
 </div>
@@ -2369,99 +2318,20 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reduce">Reduce<a class="anchor-link" href="#Reduce">&#182;</a></h2>
+<h2 id="Example-application:-bootstrap-macro">Example application: bootstrap macro<a class="anchor-link" href="#Example-application:-bootstrap-macro">&#182;</a></h2>
 </div>
 </div>
-</div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>using function <code>reduce</code> <strong>individual components</strong> of a collection can be <strong>aggregated</strong></li>
-<li>through multiple dispatch, <code>reduce</code> can have <strong>different implementations</strong> for each <strong>type</strong></li>
-<li><strong>using <code>map</code> and <code>reduce</code></strong> together, individual entries of iterable collections can be <strong>manipulated and aggregated</strong> to a single result </li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="90">
+</div><div class="fragment" data-fragment-index="82">
         
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>example</strong>: calculating <strong>row means</strong></p>
+<p>Using macros and other metaprogramming capabilities, some quite complicated applications can be implemented very concisely. As an example, we now want to implement a macro called <em>bootstrap</em>. For any given Julia function call that evaluates some statistics for some given data sample, the macro shall <strong>re-calculate the same statistics for a given number of times with bootstrapped data</strong>.</p>
 
 </div>
 </div>
-</div>
-        </div><div class="fragment" data-fragment-index="90">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">df</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><tr><th></th><th>a</th><th>b</th></tr><tr><th>1</th><td>1</td><td>4</td></tr><tr><th>2</th><td>2</td><td>5</td></tr><tr><th>3</th><td>3</td><td>6</td></tr></table>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div><div class="fragment" data-fragment-index="90">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">meanDf</span> <span class="o">=</span> <span class="n">reduce</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.+</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">./</span><span class="n">size</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[45]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3-element DataArray{Float64,1}:
- 2.5
- 3.5
- 4.5</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
         </div></section><section>
     
@@ -2470,111 +2340,18 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>example</strong>: calculating <strong>row sum with weighted columns</strong></p>
+<p>To make the steps a little bit more obvious, let's see step by step, how a given command can be decomposed into the necessary parts.</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="90">
-        
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>using <strong><code>map</code></strong> to calculate <strong>weighted columns</strong></li>
-<li>using <strong><code>reduce</code></strong> to <strong>sum up</strong> individual weighted columns</li>
-</ul>
-
-</div>
-</div>
-</div>
-        </div><div class="fragment" data-fragment-index="90">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<table class="data-frame"><tr><th></th><th>a</th><th>b</th><th>c</th></tr><tr><th>1</th><td>1</td><td>4</td><td>2</td></tr><tr><th>2</th><td>2</td><td>5</td><td>4</td></tr><tr><th>3</th><td>3</td><td>6</td><td>8</td></tr><tr><th>4</th><td>4</td><td>7</td><td>10</td></tr></table>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div></section><section>
-    
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>getting weighted columns:</li>
-</ul>
-
-</div>
-</div>
-</div><div class="fragment" data-fragment-index="90">
-        
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">wgts</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.4</span> <span class="mf">0.2</span> <span class="mf">0.4</span><span class="p">]</span>
-<span class="n">kk</span> <span class="o">=</span> <span class="n">map</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.*</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">wgts</span><span class="p">,</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3-element Array{Any,1}:
- [0.4,0.8,1.2,1.6]
- [0.8,1.0,1.2,1.4]
- [0.8,1.6,3.2,4.0]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-        </div><div class="fragment" data-fragment-index="90">
+</div><div class="fragment" data-fragment-index="82">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">wgts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<div class=" highlight hl-julia"><pre><span class="n">expr</span> <span class="o">=</span> <span class="p">:(</span><span class="n">mu</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -2589,11 +2366,50 @@ div.output_prompt {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>4-element Array{Float64,1}:
- 0.4
- 0.8
- 1.2
- 1.6</pre>
+<pre>:(mu = mean(x))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+        </div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>At the top level, the command is an assignment.</p>
+
+</div>
+</div>
+</div>
+        </div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">expr</span><span class="o">.</span><span class="n">head</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[49]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>:(=)</pre>
 </div>
 
 </div>
@@ -2609,20 +2425,18 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>aggregation with <code>reduce</code></li>
-</ul>
+<p>The left hand of the assignment can be accessed as follows:</p>
 
 </div>
 </div>
-</div><div class="fragment" data-fragment-index="90">
+</div><div class="fragment" data-fragment-index="82">
         
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span class="n">reduce</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span> <span class="o">.+</span> <span class="n">y</span><span class="p">),</span> <span class="n">map</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.*</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">wgts</span><span class="p">,</span> <span class="n">eachcol</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
+<div class=" highlight hl-julia"><pre><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -2633,15 +2447,398 @@ div.output_prompt {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[49]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[50]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>4-element DataArray{Float64,1}:
- 2.0
- 3.4
- 5.6
- 7.0</pre>
+<pre>:mu</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+        </div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And the right hand is the complete function call:</p>
+
+</div>
+</div>
+</div>
+        </div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[51]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>:(mean(x))</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+        </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Again, this can be decomposed into the function that is called,</p>
+
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[52]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>:mean</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+        </div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>and the name of the data variable that needs to be resampled:</p>
+
+</div>
+</div>
+</div>
+        </div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[53]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>:x</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+        </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hence, we now could <strong>isolate both the sample data and the function</strong> that calculates the required statistics. We can then apply the same function to bootstrapped data samples.</p>
+
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="k">macro</span> <span class="n">bootstrap</span><span class="p">(</span><span class="n">nTimes</span><span class="p">,</span> <span class="n">expr</span><span class="p">)</span>
+    <span class="k">quote</span>
+        <span class="c"># get real value</span>
+        <span class="o">$</span><span class="p">(</span><span class="n">esc</span><span class="p">(</span><span class="n">expr</span><span class="p">))</span>
+
+        <span class="c"># get function to resample</span>
+        <span class="n">func</span> <span class="o">=</span> <span class="o">$</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="c"># get data as first argument to function</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="o">$</span><span class="p">(</span><span class="n">expr</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">nObs</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">bootstrVals</span> <span class="o">=</span> <span class="n">Array</span><span class="p">(</span><span class="kt">Any</span><span class="p">,</span> <span class="o">$</span><span class="n">nTimes</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">ii</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="o">$</span><span class="n">nTimes</span>
+            <span class="n">sampInd</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">nObs</span><span class="p">,</span> <span class="n">nObs</span><span class="p">)</span>
+            <span class="n">samp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">sampInd</span><span class="p">]</span>
+        
+            <span class="c"># apply function to sample</span>
+            <span class="n">bootstrVals</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">samp</span><span class="p">)</span>
+        <span class="k">end</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">bootstrVals</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+        </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we can see, the bootstrap macro works:</p>
+
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">macroexpand</span><span class="p">(:(@</span><span class="n">bootstrap</span> <span class="mi">1500000</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[55]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>quote  # In[54], line 4:
+    mu = mean(x) # line 7:
+    #413#func = mean # line 10:
+    #414#data = x # line 11:
+    #415#nObs = length(#414#data) # line 12:
+    #416#bootstrVals = Array(Any,1500000) # line 13:
+    for #417#ii = 1:1500000 # line 14:
+        #418#sampInd = rand(1:#415#nObs,#415#nObs) # line 15:
+        #419#samp = #414#data[#418#sampInd] # line 18:
+        #416#bootstrVals[#417#ii] = #413#func(#419#samp)
+    end # line 20:
+    #420#res = #416#bootstrVals
+end</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+        </div></section><section>
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">rand</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">muBstr</span> <span class="o">=</span> <span class="p">@</span><span class="n">bootstrap</span> <span class="mi">150000</span> <span class="n">mu</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">mu</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[56]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.5093330623878153</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">muBstr</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[57]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>150000-element Array{Any,1}:
+ 0.51001 
+ 0.534658
+ 0.515049
+ 0.504732
+ 0.513977
+ 0.514036
+ 0.491998
+ 0.523921
+ 0.534615
+ 0.525906
+ 0.494712
+ 0.489036
+ 0.500321
+ ⋮       
+ 0.528564
+ 0.545485
+ 0.532547
+ 0.520392
+ 0.525585
+ 0.530451
+ 0.518228
+ 0.533759
+ 0.529191
+ 0.530825
+ 0.504388
+ 0.532594</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+        </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Although the bootstrap macro only allows functions with only one argument, its reach can easily be extended through the use of anonymous functions.</p>
+
+</div>
+</div>
+</div><div class="fragment" data-fragment-index="82">
+        
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">varNineFive</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">quantile</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">)</span>
+<span class="n">VaR_btstr</span> <span class="o">=</span> <span class="p">@</span><span class="n">bootstrap</span> <span class="mi">150</span> <span class="n">VaR</span> <span class="o">=</span> <span class="n">varNineFive</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[58]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>150-element Array{Any,1}:
+ 0.932387
+ 0.955608
+ 0.965272
+ 0.966714
+ 0.931518
+ 0.965272
+ 0.965344
+ 0.955608
+ 0.9551  
+ 0.937821
+ 0.966714
+ 0.937387
+ 0.955608
+ ⋮       
+ 0.936851
+ 0.966714
+ 0.965344
+ 0.937455
+ 0.936383
+ 0.937312
+ 0.953814
+ 0.966714
+ 0.966714
+ 0.936994
+ 0.953814
+ 0.955608</pre>
 </div>
 
 </div>
@@ -2666,7 +2863,7 @@ div.output_prompt {
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span class="n">versioninfo</span><span class="p">()</span>
@@ -2703,7 +2900,7 @@ Platform Info:
     
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span class="n">Pkg</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
