@@ -10,6 +10,13 @@ JL_FEAT_NAME := julia_features.ipynb
 
 all: iterators features
 
+INFO_TEXT := Makefile copies new version of notebook sources to directory slides/src/ and uses docker image to convert source files to html slides. html slides are then moved to slides/ directory. If there are problems with running make, check that slides/src subdirectory exists.
+
+info:
+	echo $(INFO_TEXT) \
+	& echo \
+	& echo
+
 iterators:
 	cp $(HOME)/research/ijuliaNb/julia/$(IT_NAME) src/
 	docker run --rm -v $(SRC_DIR):$(DOCK_MOUNT) -w $(DOCK_MOUNT) $(DOCK_NAME) \
