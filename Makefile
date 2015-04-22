@@ -1,5 +1,5 @@
 # list of notebook names
-SRC_DIR := $(HOME)/research/slides/src
+SRC_DIR := $(HOME)/research/ijuliaSlides/src
 
 DOCK_NAME := juliafinmetrix/jfinm_stable
 DOCK_HOME := /home/jovyan
@@ -10,7 +10,7 @@ JL_FEAT_NAME := julia_features.ipynb
 
 all: iterators features
 
-INFO_TEXT := Makefile copies new version of notebook sources to directory slides/src/ and uses docker image to convert source files to html slides. html slides are then moved to slides/ directory. If there are problems with running make, check that slides/src subdirectory exists.
+INFO_TEXT := Makefile copies new version of notebook sources to directory ijuliaSlides/src/ and uses docker image to convert source files to html slides. html slides are then moved to ijuliaSlides/ directory. If there are problems with running make, check that ijuliaSlides/src subdirectory exists.
 
 info:
 	echo $(INFO_TEXT) \
